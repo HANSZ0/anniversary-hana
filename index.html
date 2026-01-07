@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Anniversary ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600&family=Poppins:wght@300;400;500&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+
+<style>
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #f5f5f5;
+    background: #0d0b16;
+    overflow-x: hidden;
+}
+
+/* 🌷 TULIP BACKGROUND – PARALLAX */
+body::before {
+    content: "";
+    position: fixed;
+    inset: -12%;
+    background:
+        linear-gradient(rgba(13,11,22,0.68), rgba(13,11,22,0.88)),
+        url("bunga.jpg");
+    background-size: 115%;
+    background-position: center;
+    animation: tulipMove 80s linear infinite;
+    z-index: -3;
+}
+
+/* 🌷 GERAK SANGAT PELAN */
+@keyframes tulipMove {
+    0% { background-position: center top; }
+    50% { background-position: center bottom; }
+    100% { background-position: center top; }
+}
+
+/* 🎞️ VIGNETTE CINEMATIC */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at center,
+        rgba(0,0,0,0) 40%,
+        rgba(0,0,0,0.55) 100%);
+    pointer-events: none;
+    z-index: 9998;
+}
+
+/* 🌌 FILM GRAIN */
+.grain {
+    position: fixed;
+    inset: 0;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 85px 20px 60px;
+    background: rgba(18,15,30,0.78);
+    backdrop-filter: blur(5px);
+}
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    margin: 0;
+}
+header span {
+    font-size: 34px;
+    letter-spacing: 4px;
+    margin-top: 12px;
+    display: block;
+}
+header p {
+    margin-top: 20px;
+    font-size: 20px;
+    opacity: .85;
+}
+
+/* SECTION */
+section {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 42px;
+    padding: 90px 10%;
+    opacity: 0;
+    transform: translateY(45px);
+    transition: all 1.2s ease;
+    background: rgba(15,13,25,0.70);
+    backdrop-filter: blur(6px);
+}
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+section.reverse { flex-direction: row-reverse; }
+section.center { flex-direction: column; text-align: center; }
+
+/* IMAGE */
+img {
+    border-radius: 28px;
+    box-shadow: 0 25px 55px rgba(0,0,0,0.65);
+}
+
+/* TEXT */
+.text {
+    max-width: 360px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    line-height: 2.1;
+    text-align: justify;
+}
+
+/* FONT STYLE */
+.en { font-family: 'Playfair Display', serif; font-style: italic; }
+.id { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+
+/* TAP SCREEN */
+#tapScreen {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to bottom, #1f1b2e, #2b2147);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 10000;
+}
+#tapScreen h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+}
+#tapScreen p {
+    animation: pulse 1.6s infinite;
+    opacity: .85;
+}
+@keyframes pulse {
+    0%{opacity:.4}50%{opacity:1}100%{opacity:.4}
+}
+
+/* HEART */
+.heart {
+    position: fixed;
+    top: -10px;
+    font-size: 22px;
+    animation: fall linear infinite;
+    pointer-events: none;
+}
+@keyframes fall { to { transform: translateY(110vh); } }
+
+/* 🌟 FINAL GALLERY */
+.gallery {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.gallery img {
+    opacity: 0;
+    transform: translateY(25px);
+    animation: fadePhoto 1.6s ease forwards;
+}
+.gallery img.side {
+    width: 220px;
+    animation-delay: .6s;
+}
+.gallery img.center {
+    width: 300px;
+    animation-delay: 1s;
+    box-shadow:
+        0 0 55px rgba(255,255,255,0.28),
+        0 28px 65px rgba(0,0,0,0.75);
+}
+@keyframes fadePhoto {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    section, section.reverse {
+        flex-direction: column;
+        text-align: center;
+        min-height: 100vh;
+        justify-content: center;
+    }
+    .text {
+        max-width: 92%;
+        font-size: 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="grain"></div>
+
+<div id="tapScreen" onclick="enterSite()">
+    <h1>❤️ Tap to Enter ❤️</h1>
+    <p>Sentuh layar untuk memulai</p>
+</div>
+
+<audio id="music" loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<header>
+    <h1>Happy Anniversary</h1>
+    <span>365 DAYS</span>
+    <p>From Sulthan To Hana</p>
+</header>
+
+<section>
+    <img src="foto1.jpg" width="330">
+    <div class="text id">
+        Happy anniversary sayang, We’ve come this far together, and I know it hasn’t been easy, but it’s been worth it.
+        I just want to say thank you for the past 365 days.
+        You’ve made every single day of my life so much happier,
+        maaf kalau selama ini aku masih gagal jadi yang terbaik buat kamu.
+        Aku akan selalu berusaha menjadi yang terbaik buat diriku dan juga yang terbaik buat kamu.
+    </div>
+</section>
+
+<section class="reverse">
+    <img src="foto2.jpg" width="330">
+    <div class="text en">
+        Meeting you was one of the best things that ever happened to me.
+        I’m so proud of us and so lucky to have you. I miss you babe, Rindulah karna jauh, jangan menjauh karna jauh
+        Maaf dengan kondisi yang sekarang kita gabisa rayain langsung, Aku janji sama kamu someday aku pasti kesana untuk ketemu sama kamu
+    </div>
+</section>
+
+<section>
+    <img src="foto3.jpg" width="330">
+    <div class="text en">
+        Aku sayang kamu lebih dari  yang kamu tau.
+        I’m proud of us, and I feel endlessly lucky to call you mine.
+        I love you in every moment, in every condition, always.
+        Gak kerasa kita udah 1 tahun bersama, aku berharap kita akan tetap tumbuh bersama sampai selamanya...
+    </div>
+</section>
+
+<section class="center">
+    <div class="gallery">
+        <img src="foto4.jpg" class="side">
+        <img src="foto5.jpg" class="center">
+        <img src="foto6.jpg" class="side">
+    </div>
+
+    <h2 style="font-family:'Playfair Display', serif; font-size:36px; margin-top:50px;">
+        Once again,<br>Happy Anniversary My Love ❤️
+    </h2>
+</section>
+
+<script>
+function enterSite() {
+    document.getElementById("tapScreen").style.display = "none";
+    const music = document.getElementById("music");
+    music.volume = 0;
+    music.play();
+
+    let v = 0;
+    const fade = setInterval(() => {
+        v += 0.02;
+        music.volume = Math.min(v, 0.6);
+        if (v >= 0.6) clearInterval(fade);
+    }, 120);
+}
+
+/* FADE SECTION */
+const sections = document.querySelectorAll("section");
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+    });
+}, { threshold: 0.2 });
+sections.forEach(sec => observer.observe(sec));
+
+/* HEART */
+setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6500);
+}, 380);
+</script>
+
+</body>
+</html>
